@@ -1,0 +1,51 @@
+# Open document in fit-width mode by default
+set adjust-open "best-fit"
+
+# One page per row by default
+set pages-per-row 1
+
+#stop at page boundries
+set scroll-page-aware "true"
+set scroll-full-overlap 0.01
+set scroll-step 100
+
+#zoom settings
+set zoom-min 10
+set guioptions ""
+set recolor "true"
+#set recolor-keephue "true"
+set recolor-lightcolor "#161b07"
+set recolor-darkcolor "#cac6c3"
+
+set completion-bg "#161b07"
+set completion-fg "#cac6c3"
+set completion-group-bg "#161b07"
+set completion-group-fg "#698936"
+set completion-highlight-bg "#cac6c3"
+set completion-highlight-fg "#161b07"
+
+set default-bg "#161b07"
+
+set inputbar-bg "#161b07"
+set inputbar-fg "#cac6c3"
+
+set notification-bg "#161b07"
+set notification-fg "#cac6c3"
+set notification-error-bg "#8B7655"
+set notification-error-fg "#cac6c3"
+set notification-warning-bg "#8B7655"
+set notification-warning-fg "#cac6c3"
+
+set statusbar-bg "#161b07"
+set statusbar-fg "#cac6c3"
+
+set index-bg "#161b07"
+set index-fg "#cac6c3"
+set index-active-bg "#cac6c3"
+set index-active-fg "#161b07"
+set render-loading-bg "#161b07"
+set render-loading-fg "#cac6c3"
+
+set window-title-home-tilde true
+set statusbar-basename true
+set selection-clipboard clipboard

@@ -1,0 +1,2 @@
+cat zathura_base > zathurarc
+./zathura_colors >> zathurarc

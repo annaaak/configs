@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/anapana/Documents/exjobb/latex/rapport/include/settings'
+let g:netrw_dirhist_2='/home/anapana/Documents/exjobb/UltiSnips'
+let g:netrw_dirhist_1='/home/anapana/.config/nvim'
+let g:netrw_dirhist_0='/home/anapana/Documents/exjobb/latex/planeringsrapport'
+let g:netrw_dirhist_9='/home/anapana/Documents/exjobb/latex/rapport/include/settings'
+let g:netrw_dirhist_8='/home/anapana/Documents/exjobb/latex/rapport/include'
+let g:netrw_dirhist_7='/home/anapana/Documents/exjobb/latex/planeringsrapport'
+let g:netrw_dirhist_6='/home/anapana/Documents/exjobb/.git'
+let g:netrw_dirhist_5='/home/anapana/Documents/exjobb/latex/rapport/include/settings'
+let g:netrw_dirhist_4='/home/anapana/Documents/exjobb/latex/rapport/include'
