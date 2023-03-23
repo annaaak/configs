@@ -1,8 +1,7 @@
 " Anna Kallagard's vimrc
 
 
-" PLUGINS (Plug)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PLUGINS (Plug)---------------------------------------------------------------
 
 " Needed for stuff
 filetype plugin indent on
@@ -21,6 +20,7 @@ call plug#begin('~/.config/nvim')
     Plug 'vimwiki/vimwiki'
     Plug 'tbabej/taskwiki'
     Plug 'blindFS/vim-taskwarrior'
+    Plug 'godlygeek/tabular'
     Plug 'plasticboy/vim-markdown'
 
     " For faster tag search
@@ -29,14 +29,28 @@ call plug#begin('~/.config/nvim')
     " Calendar
     Plug 'mattn/calendar-vim'
 
+    " Color from Wal
+    Plug 'dylanaraps/wal.vim'
+
     " All plugins must be added before the following line
 call plug#end()
+"------------------------------------------------------------------------------
 
-"
-" Setup - Latex ---------------------
+" Status line
+set statusline=anapana
+set statusline+=\ %M
+"set statusline+=\ %y
+set statusline+=\ %r
+set statusline+=\ %F
+set statusline+=%=
+set statusline+=\ %c:%l/%L
+set statusline+=\ %p%%
+set statusline+=\ [%n]
 
-" For UltiSnips
+
+" UltiSnips 
 set rtp+=/home/anapana/current_course
+set rtp+=/home/anapana/Documents/notes
 
 " Trigger, forward + backward jump
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -44,18 +58,24 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsListSnippets="<c-b>"
 
+
 " VimTex 
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
-let g:tex_conceal='abdmg'
+let g:tex_conceal='abdg'
 
 " Include figures
 inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
 nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 
-" End Setup - Latex ------------------
+
+" vim-markdown
+let g:vim_markdown_math = 1
+let g:vim_markdown_folding_disabled = 1
+
+
 
 " Setup vimwiki ---------------------
 set nocompatible
@@ -64,6 +84,7 @@ syntax on
 
 let g:vimwiki_global_ext = 0
 let g:vimwiki_markdown_link_ext = 1
+let g:vimwiki_key_mappings = { 'table_mappings': 0, }
 
 " Wiki settings
 let wiki_default = {}
@@ -76,9 +97,14 @@ let wiki_default.auto_toc = 1
 let home_wiki = copy(wiki_default)
 let home_wiki.path = '~/Documents/notes/personal/'
 let home_wiki.diary_rel_path = 'diary/'
-let home_wiki.path_html = '~/Documents/notes/html/personal/'
 let home_wiki.syntax = 'markdown'
 let home_wiki.ext = '.md'
+
+let obsidian_wiki = copy(wiki_default)
+let obsidian_wiki.path = '~/Documents/notes/obsidian/'
+let obsidian_wiki.diary_rel_path = 'diary/'
+let obsidian_wiki.syntax = 'markdown'
+let obsidian_wiki.ext = '.md'
 
 let family_wiki = copy(wiki_default)
 let family_wiki.path = '~/Documents/notes/family/'
@@ -96,7 +122,7 @@ let exjobb_wiki.syntax = 'markdown'
 let exjobb_wiki.ext = '.md'
 
 
-let g:vimwiki_list = [exjobb_wiki, home_wiki, family_wiki]
+let g:vimwiki_list = [obsidian_wiki, exjobb_wiki, home_wiki, family_wiki]
 
 " End - vimwiki
 
@@ -153,7 +179,10 @@ nnoremap <C-p> :tabprevious<CR>
 
 " Spell check
 "setlocal spell
-"set spell spelllang=en_gb,sv
+set spell spelllang=en_gb
+nnoremap <silent> <F3> :set spell!<CR>
+inoremap <silent> <F3> <C-O>:set spell!<CR>
+
 "inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Copy visual to clipboard with \y
@@ -191,7 +220,7 @@ set colorcolumn=80      " Always highlight the 80th column
 " Color scheme
 set background=dark
 "colorscheme badwolf   "color scheme, want koehler on black, badwolf
-
+colorscheme wal
 
 " Set tabs
 set tabstop=8           " Number of visual spaces per TAB
