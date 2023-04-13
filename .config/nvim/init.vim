@@ -20,8 +20,11 @@ call plug#begin('~/.config/nvim')
     Plug 'vimwiki/vimwiki'
     Plug 'tbabej/taskwiki'
     Plug 'blindFS/vim-taskwarrior'
+
+    " Markdown
     Plug 'godlygeek/tabular'
     Plug 'plasticboy/vim-markdown'
+    Plug 'dhruvasagar/vim-table-mode'
 
     " For faster tag search
     Plug 'jremmen/vim-ripgrep'
@@ -32,9 +35,24 @@ call plug#begin('~/.config/nvim')
     " Color from Wal
     Plug 'dylanaraps/wal.vim'
 
+    " Telescope
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-telescope/telescope-bibtex.nvim'
+	
     " All plugins must be added before the following line
 call plug#end()
 "------------------------------------------------------------------------------
+
+
+" Telescope
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 
 " Status line
 set statusline=anapana
@@ -46,7 +64,6 @@ set statusline+=%=
 set statusline+=\ %c:%l/%L
 set statusline+=\ %p%%
 set statusline+=\ [%n]
-
 
 " UltiSnips 
 set rtp+=/home/anapana/current_course
@@ -74,7 +91,9 @@ nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/
 " vim-markdown
 let g:vim_markdown_math = 1
 let g:vim_markdown_folding_disabled = 1
+set nofoldenable
 
+"let g:vim_markdown_math = 1
 
 
 " Setup vimwiki ---------------------
