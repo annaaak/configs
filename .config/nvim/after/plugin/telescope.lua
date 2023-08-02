@@ -1,0 +1,80 @@
+local actions = require "telescope.actions"
+require('telescope').setup{
+  defaults = {
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case'
+    },
+    prompt_prefix = "> ",
+    selection_caret = "> ",
+    entry_prefix = "  ",
+    initial_mode = "insert",
+    selection_strategy = "reset",
+    sorting_strategy = "descending",
+    layout_strategy = "horizontal",
+    layout_config = {
+      horizontal = {
+        mirror = false,
+      },
+      vertical = {
+        mirror = false,
+      },
+    },
+    file_sorter =  require'telescope.sorters'.get_fuzzy_file,
+    file_ignore_patterns = {},
+    generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
+    winblend = 0,
+    border = {},
+    borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+    color_devicons = true,
+    use_less = true,
+    path_display = {},
+    set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
+    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
+    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
+    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+
+    -- Developer configurations: Not meant for general override
+    buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
+  },
+  extensions = {
+    bibtex = {
+      depth = 1,
+      -- Depth for the *.bib file
+      custom_formats = {},
+      -- Custom format for citation label
+      format = '',
+      -- Format to use for citation label.
+      -- Try to match the filetype by default, or use 'plain'
+      global_files = {'~/My Library.bib'},
+      -- Path to global bibliographies (placed outside of the project)
+      search_keys = { 'author', 'year', 'title' },
+      -- Define the search keys to use in the picker
+      citation_format = '{{author}} ({{year}}), {{title}}.',
+      -- Template for the formatted citation
+      citation_trim_firstname = true,
+      -- Only use initials for the authors first name
+      citation_max_auth = 2,
+      -- Max number of authors to write in the formatted citation
+      -- following authors will be replaced by "et al."
+      context = false,
+      -- Context awareness disabled by default
+      context_fallback = true,
+      -- Fallback to global/directory .bib files if context not found
+      -- This setting has no effect if context = false
+      wrap = false,
+      -- Wrapping in the preview window is disabled by default
+    },
+    -- Your extension configuration goes here:
+    -- extension_name = {
+    --   extension_config_key = value,
+    -- }
+    -- please take a look at the readme of the extension you want to configure
+  },
+}
+require('telescope').load_extension("bibtex")
