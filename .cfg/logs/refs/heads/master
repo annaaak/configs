@@ -1,7 +1,0 @@
-0000000000000000000000000000000000000000 7df730b06814bec9de89fe681043336519fd7b3f anapana <a.kallsgard@gmail.com> 1672352130 +0100	commit (initial): First.
-7df730b06814bec9de89fe681043336519fd7b3f 7df730b06814bec9de89fe681043336519fd7b3f anapana <a.kallsgard@gmail.com> 1672352209 +0100	Branch: renamed refs/heads/master to refs/heads/master
-7df730b06814bec9de89fe681043336519fd7b3f 9c424c83a73de893d726476ac42fb77053992345 anapana <a.kallsgard@gmail.com> 1672352678 +0100	commit: Now.
-9c424c83a73de893d726476ac42fb77053992345 f3a6440741152b5bd8c2076b7f3c7ce595fbd6cd anapana <a.kallsgard@gmail.com> 1672391935 +0100	commit: gitignore added.
-f3a6440741152b5bd8c2076b7f3c7ce595fbd6cd 77a70b0fd455f87dc13749b783cb69b326c9d92f anapana <a.kallsgard@gmail.com> 1672481325 +0100	commit: bashs stuffs
-77a70b0fd455f87dc13749b783cb69b326c9d92f c54f7c072526e8a7c0a24685db4e6821e9d02a77 anapana <a.kallsgard@gmail.com> 1679563971 +0100	commit: Latest nvim folder.
-c54f7c072526e8a7c0a24685db4e6821e9d02a77 e1b46394af03c3e67fda38a9d9512c2a9d7081d2 anapana <a.kallsgard@gmail.com> 1681370815 +0200	commit: Latest with wiki, markdown and table for nvim.
